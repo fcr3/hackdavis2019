@@ -14,6 +14,7 @@ target 'Recipe' do
   pod 'FirebaseDatabase'
   pod 'SwiftyJSON'
   pod 'Alamofire'
+  pod 'SVProgressHUD'
 
   target 'RecipeTests' do
     inherit! :search_paths

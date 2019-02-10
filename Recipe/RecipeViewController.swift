@@ -58,7 +58,7 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as! RecipeTableViewCell
         //set labels per item - access from currReceipt (all items should be in tableview regardless if this person has it selected or not)
 //        let item = self.currReceipt.getItems()[indexPath.item]
 //        cell.thisItem = item
@@ -74,7 +74,6 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //            }
 //        }
         cell.recipeNameLabel.text = self.recipes[indexPath.item].name
-        cell.ingredientsNameLabel.text = self.recipes[indexPath.item].ingredientsList[0]
         return cell
     }
     

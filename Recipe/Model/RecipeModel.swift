@@ -12,9 +12,9 @@ import FirebaseDatabase
 class RecipeModel {
     
     var name: String!
-//    var id: String!
-    var ingredientsList: [String] = []
-    var diet: String?
+    var calories: Int64!
+    var ingredientsList: [String: Int64]!
+    var diet: [String]!
     
     
     //curl "https://api.edamam.com/search?q=chicken&app_id=$466ff2a4&app_key=$7f52569923258d18cbf622e6c243cb98&from=0&to=3&calories=591-722&health=alcohol-free"
@@ -32,9 +32,11 @@ class RecipeModel {
 //        username = currentUser?.displayName
 //        id = currentUser?.uid
 //    }
-    init(_ tempName: String, _ tempIngreds: [String]) {
+    
+    init(_ tempName: String, _ tempIngreds: [String : Int64], _ stringOfDiets: [String], _ cals: Int64) {
         name = tempName
-        ingredientsList += tempIngreds
-        
+        ingredientsList = tempIngreds
+        calories = cals
+        diet = stringOfDiets
     }
 }

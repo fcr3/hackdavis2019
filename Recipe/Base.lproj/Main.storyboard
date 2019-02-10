@@ -158,7 +158,7 @@
                                         <connections>
                                             <action selector="buttonPressed:" destination="XKF-ob-a1q" eventType="touchUpInside" id="5IT-Jt-FHg"/>
                                             <action selector="buttonPressed:" destination="30B-Hq-UDb" eventType="touchUpInside" id="iol-GY-IZB"/>
-                                            <segue destination="IH2-qv-FB8" kind="show" identifier="goToMenu" id="eBU-ys-i1C"/>
+                                            <segue destination="IH2-qv-FB8" kind="show" identifier="goToMenu" id="dHD-KB-eVz"/>
                                         </connections>
                                     </button>
                                 </subviews>
