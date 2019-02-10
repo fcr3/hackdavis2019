@@ -14,13 +14,14 @@ import UserNotifications
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var recepieView: UITextView!
+    @IBOutlet weak var recipeView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var textView: UITextView!
     weak var imgPickerDelegate: (UINavigationControllerDelegate & UIImagePickerControllerDelegate)?
     
     let imagePicker = UIImagePickerController()
+    var ingredientList: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +45,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //            }
         //        }
     }
-    @IBAction func recepie(_ sender: Any) {
+    @IBAction func recipe(_ sender: Any) {
+        if ingredientList.count > 0 {
+            performSegue(withIdentifier: "cameraToRecipe", sender: self)
+        }
+        
+        
         if textView.text.range(of:"Import") != nil{
-            recepieView.text = "Your fridge is empty!"
+            recipeView.text = "Your fridge is empty!"
         }
         var output : String = ""
         if textView.text.range(of:"bacon") != nil && textView.text.range(of:"pasta") != nil {
@@ -55,7 +61,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if textView.text.range(of:"onions") != nil && textView.text.range(of:"carrots") != nil && textView.text.range(of:"tomatoes") != nil {
             output.append("Stir fry\n")
         }
-        recepieView.text = output
+        recipeView.text = output
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? RecipeViewController {
+            /*
+             if (isNewReceipt) {
+             dest.currReceipt = newReceipt
+             receipts.append(newReceipt)
+             isNewReceipt = false
+             dest.currPerson = newReceipt.getPersonArray()[0]
+             */
+            dest.ingredientList = self.ingredientList
+            
+        }
+        
     }
     
     @IBAction func clicked(_ sender: Any) {
@@ -83,6 +104,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let textRecognizer = vision.cloudTextRecognizer()
             let img = VisionImage(image: pickedImage)
             
+            
+            
             // recognise
             textRecognizer.process(img) { result, error in
                 guard error == nil, let r = result else {
@@ -93,6 +116,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let resultText = r.text
                 print(resultText)
                 self.textView.text = resultText
+                self.ingredientList[0] = resultText
                 
                 var resultArray = [String]()
                 for block in r.blocks {
@@ -166,6 +190,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    
 }
 
 
