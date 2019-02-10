@@ -21,6 +21,7 @@ class RecipesTableViewController: UITableViewController, UISearchResultsUpdating
     weak var imgPickerDelegate: (UINavigationControllerDelegate & UIImagePickerControllerDelegate)?
     let imagePicker = UIImagePickerController()
     var queryString: String = ""
+    var filteredIngredients: [String] = []
     let appId: String = "0c507f4c"
     let apiKey: String = "dffa96506e193d6ec1d0a6a947683251"
     
@@ -137,21 +138,6 @@ class RecipesTableViewController: UITableViewController, UISearchResultsUpdating
                 let resultText = r.text
                 print(resultText)
                 
-                let alertMessage = UIAlertController(title: "Delete Item", message: "Would you like to delete this item?", preferredStyle: .alert)
-                
-                let confirmationAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
-                    print("YAY")
-                }
-                )
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action) -> Void in
-                    print("canceled")
-                }
-                )
-                
-                alertMessage.addAction(cancelAction)
-                alertMessage.addAction(confirmationAction)
-                self.present(alertMessage, animated: true, completion: nil)
                 
 //                for block in r.blocks {
 //                    for line in block.lines {
@@ -163,6 +149,19 @@ class RecipesTableViewController: UITableViewController, UISearchResultsUpdating
                 
                 self.queryString = self.filter_input(ingredientList: ["chicken", "onions", "garlic", "tomatoes"])
                 print(self.queryString)
+                let alertMessage = UIAlertController(title: "Detected Food", message: self.filteredIngredients.joined(separator: ", "), preferredStyle: .alert)
+                
+                let confirmationAction = UIAlertAction(title: "Confirm", style: .destructive, handler: { (action) -> Void in
+                    print("YAY")
+                }
+                )
+                
+                
+                
+                
+                alertMessage.addAction(confirmationAction)
+                self.present(alertMessage, animated: true, completion: nil)
+                
                 let url1 = "https://api.edamam.com/search?q=" + self.queryString
                 let url2 = "&app_id=" + self.appId + "&app_key=" + self.apiKey + "&from=0&to=3&calories=591-722"
                 self.getRecipeData(url: "https://api.edamam.com/search?q=chicken&app_id=0c507f4c&app_key=dffa96506e193d6ec1d0a6a947683251&from=0&to=3&calories=591-722&health=alcohol-free", parameters: [:])
@@ -224,6 +223,8 @@ class RecipesTableViewController: UITableViewController, UISearchResultsUpdating
         textArr = textArr.filter({ (word) -> Bool in
             word.count > 2
         })
+        
+        self.filteredIngredients = ingredientList
         
         return ingredientList.joined(separator: ",%20")
     }
