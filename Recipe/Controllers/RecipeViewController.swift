@@ -30,16 +30,16 @@ class RecipeViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
         
-        nameLabel.text = recipe.getName()
-        Calories.text = recipe.getCals()
+        nameLabel.text = "Recipe Name: " + recipe.getName()
+        Calories.text = "Calories: " + recipe.getCals()
         var ingredientsToCalories = [String]()
         var igl: [String : Int64] = recipe.getIgl()
         for keys in igl {
-            var num = keys.key
+            var num = keys.value
             ingredientsToCalories.append(keys.key + " - " + String(num))
         }
-        diet.text = recipe.getDiet().joined(separator: " ")
-        ingredients.text = ingredientsToCalories.joined(separator: ", ")
+        diet.text = "Health Labels: " + recipe.getDiet().joined(separator: ", ")
+        ingredients.text = "Ingredients: " + ingredientsToCalories.joined(separator: ", ")
     }
 
 }
