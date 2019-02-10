@@ -88,47 +88,7 @@ class RecipesTableViewController: UITableViewController, UISearchResultsUpdating
         self.tableView.reloadData()
     }
     
-    //: Camera Picker Methods
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true)
-    }
-    
-    @IBAction func accessCamera(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
-            
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.allowsEditing = true
-            present(imagePicker, animated: true, completion: nil)
-        }
-    }
-    
-    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : AnyObject]) {
-        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            let vision = Vision.vision()
-            let textRecognizer = vision.cloudTextRecognizer()
-            let img = VisionImage(image: pickedImage)
-            // recognise
-            textRecognizer.process(img) { result, error in
-                guard error == nil, let r = result else {
-                    return
-                }
-                let resultText = r.text
-                print(resultText)
 
-                for block in r.blocks {
-                    for line in block.lines {
-                        for element in line.elements {
-                            self.tableData.append(element.text.lowercased())
-                        }
-                    }
-                }
-                self.tableView.reloadData()
-            }
-            
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
     
     /*
     // Override to support conditional editing of the table view.
