@@ -90,8 +90,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.textView.text = error?.localizedDescription
                     return
                 }
-                //                let resultText = r.text
-                //                self.textView.text = resultText
+                let resultText = r.text
+                print(resultText)
+                self.textView.text = resultText
                 
                 var resultArray = [String]()
                 for block in r.blocks {
