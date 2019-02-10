@@ -15,6 +15,7 @@
 		AA22F03B220FAFA300A9A556 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA22F03A220FAFA300A9A556 /* Assets.xcassets */; };
 		AA22F03E220FAFA300A9A556 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA22F03C220FAFA300A9A556 /* LaunchScreen.storyboard */; };
 		AA22F049220FAFA300A9A556 /* RecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA22F048220FAFA300A9A556 /* RecipeTests.swift */; };
+		AC7DB0A4220FBA37004EC304 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC7DB0A3220FBA37004EC304 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		AA22F044220FAFA300A9A556 /* RecipeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA22F048220FAFA300A9A556 /* RecipeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTests.swift; sourceTree = "<group>"; };
 		AA22F04A220FAFA300A9A556 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC7DB0A3220FBA37004EC304 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				AA22F03A220FAFA300A9A556 /* Assets.xcassets */,
 				AA22F03C220FAFA300A9A556 /* LaunchScreen.storyboard */,
 				AA22F03F220FAFA300A9A556 /* Info.plist */,
+				AC7DB0A3220FBA37004EC304 /* GoogleService-Info.plist */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA22F03E220FAFA300A9A556 /* LaunchScreen.storyboard in Resources */,
+				AC7DB0A4220FBA37004EC304 /* GoogleService-Info.plist in Resources */,
 				AA22F03B220FAFA300A9A556 /* Assets.xcassets in Resources */,
 				AA22F039220FAF9B00A9A556 /* Main.storyboard in Resources */,
 			);
