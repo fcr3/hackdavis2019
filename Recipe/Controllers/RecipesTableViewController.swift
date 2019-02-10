@@ -137,6 +137,22 @@ class RecipesTableViewController: UITableViewController, UISearchResultsUpdating
                 let resultText = r.text
                 print(resultText)
                 
+                let alertMessage = UIAlertController(title: "Delete Item", message: "Would you like to delete this item?", preferredStyle: .alert)
+                
+                let confirmationAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
+                    print("YAY")
+                }
+                )
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action) -> Void in
+                    print("canceled")
+                }
+                )
+                
+                alertMessage.addAction(cancelAction)
+                alertMessage.addAction(confirmationAction)
+                self.present(alertMessage, animated: true, completion: nil)
+                
 //                for block in r.blocks {
 //                    for line in block.lines {
 //                        for element in line.elements {

@@ -38,8 +38,8 @@ class RecipeViewController: UIViewController {
             var num = keys.value
             ingredientsToCalories.append(keys.key + " - " + String(num))
         }
-        diet.text = "Health Labels: " + recipe.getDiet().joined(separator: ", ")
-        ingredients.text = "Ingredients: " + ingredientsToCalories.joined(separator: ", ")
+        diet.text = "Health Labels: \n" + recipe.getDiet().joined(separator: "\n")
+        ingredients.text = "Ingredients: \n" + ingredientsToCalories.joined(separator: "\n")
     }
 
 }
