@@ -7,6 +7,7 @@ target 'Recipe' do
 
   # Pods for Recipe
   pod 'Firebase/Core'
+  pod 'FirebaseCore'
   pod 'FirebaseAuth'
   pod 'Firebase/Firestore'
   pod 'Firebase/MLVision'
