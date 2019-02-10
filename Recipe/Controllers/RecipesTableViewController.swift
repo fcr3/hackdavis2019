@@ -20,6 +20,14 @@ class RecipesTableViewController: UITableViewController, UISearchResultsUpdating
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let rightBarButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(RecipesTableViewController.myRightSideBarButtonItemTapped(_:)))
+//        self.navigationItem.rightBarButtonItem = rightBarButton
+//
+//
+//        let leftBarButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItem.Style.done, target: self, action: #selector(RecipesTableViewController.myLeftSideBarButtonItemTapped(_:)))
+//        self.navigationItem.leftBarButtonItem = leftBarButton
+        
         imagePicker.delegate = self
 
         // Uncomment the following line to preserve selection between presentations
@@ -44,6 +52,16 @@ class RecipesTableViewController: UITableViewController, UISearchResultsUpdating
         
         tableView.reloadData()
     }
+    
+//    @objc func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
+//    {
+//        print("myRightSideBarButtonItemTapped")
+//    }
+//
+//    @objc func myLeftSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
+//    {
+//        print("myLeftSideBarButtonItemTapped")
+//    }
 
     // MARK: - Table view data source
 
@@ -86,6 +104,50 @@ class RecipesTableViewController: UITableViewController, UISearchResultsUpdating
         filteredTableData = array as! [String]
         
         self.tableView.reloadData()
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    @IBAction func pressedCamera(_ sender: UIBarButtonItem) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
+            
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : AnyObject]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            let vision = Vision.vision()
+            let textRecognizer = vision.cloudTextRecognizer()
+            let img = VisionImage(image: pickedImage)
+            // recognise
+            textRecognizer.process(img) { result, error in
+                guard error == nil, let r = result else {
+                    return
+                }
+                let resultText = r.text
+                print(resultText)
+                
+                for block in r.blocks {
+                    for line in block.lines {
+                        for element in line.elements {
+                            self.tableData.append(element.text.lowercased())
+                        }
+                    }
+                }
+                
+                
+                
+                
+            }
+            
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
     
 

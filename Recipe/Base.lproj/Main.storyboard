@@ -158,6 +158,7 @@
                                         <connections>
                                             <action selector="buttonPressed:" destination="XKF-ob-a1q" eventType="touchUpInside" id="5IT-Jt-FHg"/>
                                             <action selector="buttonPressed:" destination="30B-Hq-UDb" eventType="touchUpInside" id="iol-GY-IZB"/>
+                                            <segue destination="IH2-qv-FB8" kind="show" identifier="goToMenu" id="eBU-ys-i1C"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -172,9 +173,6 @@
                         <viewLayoutGuide key="safeArea" id="DiP-1w-UqV"/>
                     </view>
                     <navigationItem key="navigationItem" id="uvf-eo-ZvC"/>
-                    <connections>
-                        <segue destination="0ZF-FE-2EN" kind="show" identifier="goToMenu" id="dnv-JO-TYX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tG3-et-5Dz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="XKF-ob-a1q" userLabel="Exit" sceneMemberID="exit"/>
@@ -196,24 +194,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N3P-45-CQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1610" y="301"/>
-        </scene>
-        <!--Recipes-->
-        <scene sceneID="Rx0-FL-5zm">
-            <objects>
-                <tabBarController title="Recipes" id="0ZF-FE-2EN" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uvK-U1-f3J">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="IH2-qv-FB8" kind="relationship" relationship="viewControllers" id="BgI-Uh-otW"/>
-                        <segue destination="A16-Il-hyY" kind="relationship" relationship="viewControllers" id="sR1-7V-mT3"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ze-vg-xQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7" y="301"/>
         </scene>
         <!--Recipes-->
         <scene sceneID="Ba9-xU-efl">
@@ -241,7 +221,11 @@
                     <tabBarItem key="tabBarItem" systemItem="search" id="fKm-QR-mJA"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Recipe Search" leftItemsSupplementBackButton="YES" id="Y8y-VX-mCH">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="maW-xP-jOP"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="JVr-oh-Uy4">
+                            <connections>
+                                <action selector="pressedCamera:" destination="IH2-qv-FB8" id="Pzr-Wu-LpN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -253,7 +237,7 @@
                 </button>
                 <tabBarItem systemItem="search" id="nMc-h9-4ue"/>
             </objects>
-            <point key="canvasLocation" x="970" y="-41"/>
+            <point key="canvasLocation" x="177" y="301"/>
         </scene>
         <!--User Info-->
         <scene sceneID="e0V-RR-T7U">
