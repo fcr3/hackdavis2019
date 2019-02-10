@@ -74,7 +74,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
              isNewReceipt = false
              dest.currPerson = newReceipt.getPersonArray()[0]
              */
-            dest.ingredientList = self.ingredientList
+//            dest.ingredientList = self.ingredientList
             
         }
         

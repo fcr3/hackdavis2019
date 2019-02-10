@@ -39,4 +39,20 @@ class RecipeModel {
         calories = cals
         diet = stringOfDiets
     }
+    
+    func getName() -> String {
+        return self.name
+    }
+    
+    func getIgl() -> [String : Int64]{
+        return self.ingredientsList
+    }
+    
+    func getCals() -> String {
+        return String(self.calories)
+    }
+    
+    func getDiet() -> [String] {
+        return self.diet
+    }
 }

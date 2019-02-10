@@ -19,9 +19,9 @@
 		AA22F05C2210620600A9A556 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA22F05A2210620600A9A556 /* TestTableViewCell.swift */; };
 		AA22F05D2210620600A9A556 /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA22F05B2210620600A9A556 /* TestTableViewCell.xib */; };
 		AA22F05F22107B3700A9A556 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA22F05E22107B3700A9A556 /* CameraViewController.swift */; };
+		AA22F0612210AD5400A9A556 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA22F0602210AD5400A9A556 /* RecipeViewController.swift */; };
 		AC7DB0A4220FBA37004EC304 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC7DB0A3220FBA37004EC304 /* GoogleService-Info.plist */; };
 		AC7DB0A7220FD17D004EC304 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7DB0A6220FD17D004EC304 /* User.swift */; };
-		AC7DB0A9220FD933004EC304 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7DB0A8220FD933004EC304 /* RecipeViewController.swift */; };
 		AC7DB0AB22100264004EC304 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7DB0AA22100264004EC304 /* RecipeTableViewCell.swift */; };
 		AC7DB0AD22100375004EC304 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7DB0AC22100375004EC304 /* RecipeModel.swift */; };
 		D7A664FC44044DE56F750F31 /* Pods_Recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1416CA1DBFCECB5F0CF99EC5 /* Pods_Recipe.framework */; };
@@ -58,9 +58,9 @@
 		AA22F05A2210620600A9A556 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		AA22F05B2210620600A9A556 /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		AA22F05E22107B3700A9A556 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		AA22F0602210AD5400A9A556 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		AC7DB0A3220FBA37004EC304 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC7DB0A6220FD17D004EC304 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		AC7DB0A8220FD933004EC304 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		AC7DB0AA22100264004EC304 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		AC7DB0AC22100375004EC304 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		E1EA062DCDD4B4B9ADAC68B1 /* Pods_RecipeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +132,6 @@
 				AA22F05322104F1800A9A556 /* Controllers */,
 				AA22F033220FAF9B00A9A556 /* AppDelegate.swift */,
 				AA22F035220FAF9B00A9A556 /* ViewController.swift */,
-				AC7DB0A8220FD933004EC304 /* RecipeViewController.swift */,
 				AC7DB0AA22100264004EC304 /* RecipeTableViewCell.swift */,
 				AC7DB0A5220FD126004EC304 /* Model */,
 				AA22F037220FAF9B00A9A556 /* Main.storyboard */,
@@ -159,6 +158,7 @@
 				AA22F05622104F9500A9A556 /* LoginViewController.swift */,
 				AA22F0582210601D00A9A556 /* RecipesTableViewController.swift */,
 				AA22F05E22107B3700A9A556 /* CameraViewController.swift */,
+				AA22F0602210AD5400A9A556 /* RecipeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -361,9 +361,9 @@
 			files = (
 				AA22F05722104F9500A9A556 /* LoginViewController.swift in Sources */,
 				AA22F05F22107B3700A9A556 /* CameraViewController.swift in Sources */,
-				AC7DB0A9220FD933004EC304 /* RecipeViewController.swift in Sources */,
 				AA22F05C2210620600A9A556 /* TestTableViewCell.swift in Sources */,
 				AA22F0592210601D00A9A556 /* RecipesTableViewController.swift in Sources */,
+				AA22F0612210AD5400A9A556 /* RecipeViewController.swift in Sources */,
 				AC7DB0AB22100264004EC304 /* RecipeTableViewCell.swift in Sources */,
 				AA22F036220FAF9B00A9A556 /* ViewController.swift in Sources */,
 				AA22F034220FAF9B00A9A556 /* AppDelegate.swift in Sources */,

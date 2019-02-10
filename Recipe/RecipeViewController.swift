@@ -12,17 +12,13 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     var ingredientList: [String] = []
     var recipes: [RecipeModel] = []
+    var selectedRecipe: RecipeModel = nil
     @IBOutlet weak var recipeTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeTableView.delegate = self
         recipeTableView.dataSource = self
-        
-        filter_input()
-        // Do any additional setup after loading the view.
-        
-        
     }
     
     func filter_input() {
@@ -59,32 +55,27 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as! RecipeTableViewCell
-        //set labels per item - access from currReceipt (all items should be in tableview regardless if this person has it selected or not)
-//        let item = self.currReceipt.getItems()[indexPath.item]
-//        cell.thisItem = item
-//        cell.itemLabel.text = item.name
-//        cell.priceLabel.text =  "$" + String(format: "%.2f", item.getCost())
-//        cell.checkbox.setImage(UIImage(named: "unchecked-checkbox-blue"), for: UIControl.State.normal)
-//        cell.itemSelected = false
-//        cell.NewBillVC = self
-//        for person in item.getPeopleWhoWant() {
-//            if (person.name == currPerson.name) {
-//                cell.checkbox.setImage(UIImage(named: "checked-checkbox-blue"), for: UIControl.State.normal)
-//                cell.itemSelected = true
-//            }
-//        }
         cell.recipeNameLabel.text = self.recipes[indexPath.item].name
         return cell
     }
     
-    /*
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !self.recipes.isEmpty {
+            selectedRecipe = self.recipes[indexPath.row]
+            performSegue(withIdentifier: "goToRecipeView", sender: self)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "goToRecipeView" {
+            let destinationVC = segue.destination as! RecipeViewController
+            destinationVC.recipe = self.selectedRecipe
+            self.selectedRecipe = nil
+        }
     }
-    */
 
 }

@@ -16,6 +16,7 @@ class RecipesTableViewController: UITableViewController, UISearchResultsUpdating
 
     var tableData: [RecipeModel] = [RecipeModel]()
     var filteredTableData = [String]()
+    var selectedRecipe : RecipeModel!
     var resultSearchController = UISearchController()
     weak var imgPickerDelegate: (UINavigationControllerDelegate & UIImagePickerControllerDelegate)?
     let imagePicker = UIImagePickerController()
@@ -209,6 +210,22 @@ class RecipesTableViewController: UITableViewController, UISearchResultsUpdating
         })
         
         return ingredientList.joined(separator: ",%20")
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !self.tableData.isEmpty {
+            self.selectedRecipe = self.tableData[indexPath.row]
+            performSegue(withIdentifier: "goToRecipeView", sender: self)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToRecipeView" {
+            let destinationVC = segue.destination as! RecipeViewController
+            destinationVC.recipe = self.selectedRecipe
+//            self.selectedRecipe = nil
+        }
     }
 
 }
