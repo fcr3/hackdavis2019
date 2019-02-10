@@ -18,6 +18,8 @@
 		AC7DB0A4220FBA37004EC304 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC7DB0A3220FBA37004EC304 /* GoogleService-Info.plist */; };
 		AC7DB0A7220FD17D004EC304 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7DB0A6220FD17D004EC304 /* User.swift */; };
 		AC7DB0A9220FD933004EC304 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7DB0A8220FD933004EC304 /* RecipeViewController.swift */; };
+		AC7DB0AB22100264004EC304 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7DB0AA22100264004EC304 /* RecipeTableViewCell.swift */; };
+		AC7DB0AD22100375004EC304 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7DB0AC22100375004EC304 /* RecipeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		AC7DB0A3220FBA37004EC304 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC7DB0A6220FD17D004EC304 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AC7DB0A8220FD933004EC304 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		AC7DB0AA22100264004EC304 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		AC7DB0AC22100375004EC304 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 				AA22F033220FAF9B00A9A556 /* AppDelegate.swift */,
 				AA22F035220FAF9B00A9A556 /* ViewController.swift */,
 				AC7DB0A8220FD933004EC304 /* RecipeViewController.swift */,
+				AC7DB0AA22100264004EC304 /* RecipeTableViewCell.swift */,
 				AC7DB0A5220FD126004EC304 /* Model */,
 				AA22F037220FAF9B00A9A556 /* Main.storyboard */,
 				AA22F03A220FAFA300A9A556 /* Assets.xcassets */,
@@ -141,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				AC7DB0A6220FD17D004EC304 /* User.swift */,
+				AC7DB0AC22100375004EC304 /* RecipeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -330,9 +336,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC7DB0A9220FD933004EC304 /* RecipeViewController.swift in Sources */,
+				AC7DB0AB22100264004EC304 /* RecipeTableViewCell.swift in Sources */,
 				AA22F036220FAF9B00A9A556 /* ViewController.swift in Sources */,
 				AA22F034220FAF9B00A9A556 /* AppDelegate.swift in Sources */,
 				AC7DB0A7220FD17D004EC304 /* User.swift in Sources */,
+				AC7DB0AD22100375004EC304 /* RecipeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

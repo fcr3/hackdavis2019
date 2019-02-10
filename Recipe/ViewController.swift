@@ -14,10 +14,10 @@ import UserNotifications
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var recipeView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var recipeButton: UIButton!
     weak var imgPickerDelegate: (UINavigationControllerDelegate & UIImagePickerControllerDelegate)?
     
     let imagePicker = UIImagePickerController()
@@ -27,6 +27,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         imagePicker.delegate = self
+        recipeButton.isEnabled = false
         
         //        // querying permission for notifications
         //        let notificationCenter = UNUserNotificationCenter.current()
@@ -51,17 +52,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         
-        if textView.text.range(of:"Import") != nil{
-            recipeView.text = "Your fridge is empty!"
-        }
-        var output : String = ""
-        if textView.text.range(of:"bacon") != nil && textView.text.range(of:"pasta") != nil {
-            output.append("Carbonara\n")
-        }
-        if textView.text.range(of:"onions") != nil && textView.text.range(of:"carrots") != nil && textView.text.range(of:"tomatoes") != nil {
-            output.append("Stir fry\n")
-        }
-        recipeView.text = output
+//        if textView.text.range(of:"Import") != nil{
+//            recipeView.text = "Your fridge is empty!"
+//        }
+//        var output : String = ""
+//        if textView.text.range(of:"bacon") != nil && textView.text.range(of:"pasta") != nil {
+//            output.append("Carbonara\n")
+//        }
+//        if textView.text.range(of:"onions") != nil && textView.text.range(of:"carrots") != nil && textView.text.range(of:"tomatoes") != nil {
+//            output.append("Stir fry\n")
+//        }
+//        recipeView.text = output
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -117,6 +118,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 print(resultText)
                 self.textView.text = resultText
                 self.ingredientList.append(resultText)
+                self.recipeButton.isEnabled = true
+                
                 
                 var resultArray = [String]()
                 for block in r.blocks {
