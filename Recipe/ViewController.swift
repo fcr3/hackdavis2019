@@ -116,7 +116,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let resultText = r.text
                 print(resultText)
                 self.textView.text = resultText
-                self.ingredientList[0] = resultText
+                self.ingredientList.append(resultText)
                 
                 var resultArray = [String]()
                 for block in r.blocks {
