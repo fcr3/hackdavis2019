@@ -104,9 +104,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let vision = Vision.vision()
             let textRecognizer = vision.cloudTextRecognizer()
             let img = VisionImage(image: pickedImage)
-            
-            
-            
             // recognise
             textRecognizer.process(img) { result, error in
                 guard error == nil, let r = result else {
@@ -162,21 +159,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                             }
                             self.textView.text = display
                             db.collection("items").document(String(word)).setData(dict)
-                            //                            let content = UNMutableNotificationContent()
-                            //                            content.title = "Expired" // NSString.localizedUserNotificationStringForKey("Expiration", arguments: nil)
-                            //                            content.body = "milk" // NSString.localizedUserNotificationStringForKey("Hello_message_body", arguments: nil)
-                            //                            content.sound = UNNotificationSound.default
-                            // Deliver the notification in five seconds.
-                            //                            self.textView.text = "5 second timer started"
-                            //                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                            //                            let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger)
-                            //                            let center = UNUserNotificationCenter.current()
-                            //                            center.add(request) { (error) in
-                            //                                if error != nil {
-                            //                                    // Handle any errors
-                            //                                }
-                            //                            }
-                            
                         } else {
                             //print("Document does not exist")
                             //continue
